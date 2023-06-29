@@ -24,3 +24,4 @@ if __name__ == '__main__':
     if options.graph:
         graph = Graph(csv_file)
         graph.plots()
+        print('Done!')

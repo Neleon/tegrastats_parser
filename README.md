@@ -28,6 +28,11 @@ Usage with only parsing of output text log file from tegrastats
 python main.py --only_parse --interval <logging_interval_in_mS> --log_file <path_to_log_file>/<name_of_log_file>.txt
 ```
 
+Usage with only parsing of output text log file from tegrastats then plots
+```
+python main.py --only_parse --interval <logging_interval_in_mS> --log_file <path_to_log_file>/<name_of_log_file>.txt --graph
+```
+
 To only obtain plots using existing csv file, change the file name under the variable *csv_file* and execute the following command
 ```
 python main.py --graph

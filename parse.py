@@ -116,15 +116,24 @@ class Parse:
 
             with open(self.log_file, 'r') as log:
                 data = log.readlines()
-                writer.writerow([data[0]])
-                labels = self.create_header(data[1])
-                writer.writerow(labels)
-                time = 0
+                if 'UTC' in data[0]:
+                    labels = self.create_header(data[1])
+                    writer.writerow(labels)
+                    time = 0
 
-                for i, line in enumerate(data[1:]):
-                    row = [i, time] + list(self.parse_data(line).values())
-                    writer.writerow(row)
-                    time = time + self.interval
+                    for i, line in enumerate(data[1:]):
+                        row = [i, time] + list(self.parse_data(line).values())
+                        writer.writerow(row)
+                        time = time + self.interval
+                else:
+                  labels = self.create_header(data[0])
+                  writer.writerow(labels)
+                  time = 0
+
+                  for i, line in enumerate(data):
+                      row = [i, time] + list(self.parse_data(line).values())
+                      writer.writerow(row)
+                      time = time + self.interval
 
         return csv_file
 
