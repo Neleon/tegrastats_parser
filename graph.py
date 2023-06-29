@@ -43,7 +43,8 @@ class Graph:
         plt.ylabel(y)
         # plt.scatter(self.df.loc[:, x], self.df.loc[:, y]) # scatter
         plt.plot(self.df.loc[:, x], self.df.loc[:, y], color=colors[random.randint(0, 100) % len(colors)]) # plot
-        plt.savefig(f'{x} vs. {y}.png')
+        # plt.savefig(f'{x} vs. {y}.png')
+        plt.show()
         plt.close()
 
     def plots(self):
